@@ -1,0 +1,29 @@
+[project]
+name = "rest-sqlite-iceberg-catalog"
+version = "0.1.0"
+description = "A lightweight, single-tenant Apache Iceberg REST Catalog backed by SQLite and powered by PyIceberg & FastAPI"
+readme = "README.md"
+authors = [
+    { name = "brocolidata", email = "contact.brocoli@gmail.com" }
+]
+requires-python = ">=3.12"
+dependencies = [
+    "fastapi>=0.139.2",
+    "pydantic>=2.13.4",
+    "pyiceberg[pyarrow,sql-sqlite]>=0.11.1",
+    "uvicorn>=0.51.0",
+]
+
+[project.scripts]
+rest-sqlite-iceberg-catalog = "rest_sqlite_iceberg_catalog.main:cli"
+
+[build-system]
+requires = ["uv_build>=0.11.3,<0.12.0"]
+build-backend = "uv_build"
+
+[dependency-groups]
+dev = [
+    "httpx>=0.28.1",
+    "pytest>=9.1.1",
+    "ruff>=0.16.0",
+]
